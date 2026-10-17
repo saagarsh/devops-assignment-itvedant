@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: itvedant-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: itvedant-app
+  template:
+    metadata:
+      labels:
+        app: itvedant-app
+    spec:
+      containers:
+      - name: itvedant-app
+        image: devops-assignment-itvedant:local
+        ports:
+        - containerPort: 8000
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: itvedant-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: itvedant-test
+  ports:
+    - port: 80
+      targetPort: 8000
