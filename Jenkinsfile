@@ -52,10 +52,10 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 // Update the deployment with the new image
-                sh "kubectl set image deployment/devops-app devops-app=${FULL_IMAGE_NAME}:${IMAGE_TAG}"
+                sh "kubectl set image deployment/itvedant-app itvedant-app=${FULL_IMAGE_NAME}:${IMAGE_TAG}"
                 
                 // Wait for the rollout to finish successfully
-                sh "kubectl rollout status deployment/devops-app"
+                sh "kubectl rollout status deployment/itvedant-app"
             }
         }
     }
