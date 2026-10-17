@@ -23,7 +23,7 @@ class AppTest(unittest.TestCase):
             self.assertEqual(response.status, 200)
             self.assertEqual(
                 json.load(response)["message"],
-                "Hello from the DevOps assignment!"
+                "Hello from Sagar to Itvedant, here is my DevOps assignment!"
             )
 
     def test_health(self):
